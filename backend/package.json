@@ -1,0 +1,29 @@
+{
+  "name": "soporte-tecnico-backend",
+  "version": "1.0.0",
+  "description": "Backend para sistema de soporte técnico",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "node src/prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.8",
+    "exceljs": "^4.4.0",
+    "puppeteer": "^22.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prisma": "^5.10.0"
+  }
+}

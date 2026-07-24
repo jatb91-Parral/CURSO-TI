@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model usuarios {
+  id            Int       @id @default(autoincrement())
+  nombre        String
+  email         String    @unique
+  password      String
+  rol           String    @default("enlace")
+  area_id       Int?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  
+  area          areas?    @relation(fields: [area_id], references: [id])
+  tickets_creados tickets[] @relation("tickets_creados")
+  tickets_asignados tickets[] @relation("tickets_asignados")
+  seguimientos  seguimiento[]
+}
+
+model areas {
+  id            Int       @id @default(autoincrement())
+  nombre        String    @unique
+  enlace_id     Int?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  
+  enlace        usuarios? @relation(fields: [enlace_id], references: [id])
+  usuarios      usuarios[]
+  tickets       tickets[]
+}
+
+model tickets {
+  id            Int       @id @default(autoincrement())
+  titulo        String
+  problema_tipo String
+  descripcion   String
+  estado        String    @default("rojo")
+  prioridad     String    @default("media")
+  area_id       Int
+  usuario_creador_id Int
+  tecnico_asignado_id Int?
+  fecha_creacion DateTime @default(now())
+  fecha_atencion DateTime?
+  fecha_resolucion DateTime?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  
+  area          areas     @relation(fields: [area_id], references: [id])
+  usuario_creador usuarios @relation("tickets_creados", fields: [usuario_creador_id], references: [id])
+  tecnico_asignado usuarios? @relation("tickets_asignados", fields: [tecnico_asignado_id], references: [id])
+  seguimientos  seguimiento[]
+}
+
+model seguimiento {
+  id            Int       @id @default(autoincrement())
+  ticket_id     Int
+  usuario_id    Int
+  comentario    String
+  created_at    DateTime  @default(now())
+  
+  ticket        tickets   @relation(fields: [ticket_id], references: [id])
+  usuario       usuarios  @relation(fields: [usuario_id], references: [id])
+}

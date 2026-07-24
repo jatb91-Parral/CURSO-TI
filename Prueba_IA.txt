@@ -1,0 +1,19 @@
+Usuario: Propio, responsable del área de tecnologías
+Problema: Servicios de soportes técnicos no identificados que se brindan en el trabajo
+Entradas: Se captura los servicio realizados por área, fecha y breve descripción del servicio
+Salida: Tablas, diagramas de los servicios realizados en cada área
+Función útil: Filtrar por área, búsqueda por fecha y exportar un reporte mensual de las actividades
+
+
+Prompt: Objetivo (Que quiero) - Contexto (Para quien, qué caso) - Restricciones (Que NO debe hacer) - Formato (Cómo se entrega)
+
+
+*Quiero una pantalla donde pueda ver los problema de soporte técnico en una dependencia de gobierno
+Quiero que siete enlaces capturen la necesidad de soporte técnico que tengan cada uno en su área, con un perfil de captura nada más
+*Que se desglose una lista de las cinco principales problemas técnicos que hemos tenido en el área; 1.- falló el internet 2.- No prende la computadora 3.- No sirve la impresora 4.- No sirve el scanner 5.- otra:______________
+*Que emita una alerta a un super administrador para poder atender el problema que previamente registraron
+*Me gustaría una pantalla que tenga siete pestañas (una por cada enlace) para que ingresen cada uno a su pestaña correspondiente y puedan capturar el problema técnico
+*Semaforización del problema, una alerta roja por parte del usuario al capturar el problema, amarillo cuando el super administrador ya este atendiendo el problema (promedio de una lapso de 24horas) y en verde al finalizar el problema por el super administrador
+*Que el super administrador pueda descargar reportes de los problemas que se capturaron y ver el estatus en que se encuentran cada uno, identificando el enlace que solicito el soporte técnico con fecha y la fecha de respuesta por parte del super administrador.
+*Crear perfiles tanto de enlaces que ellos nada más puedan ver la información correspondiente a su área y de super administrador para controlar las necesidades
+
